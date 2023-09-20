@@ -1,9 +1,6 @@
 # techBlog
-# E-Commerce
 
 ## Description
-
-
 
 ## Table of Contents
 
@@ -19,12 +16,9 @@ I used the tools that I had on my computer, like Git, Vscode, Github, and Google
 
 ## Usage
 
-
-
 ## Credits
 
 resources:
-
 
 ## License
 
