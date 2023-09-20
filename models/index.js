@@ -1,29 +1,30 @@
-const user = require('./user');
-const comments = require('./comments');
-const blog = require('./blog');
-//set up relation keys
-user.hasMany(blog, {
-    foreignKey: 'user_id',
+// Import the necessary models
+const user = require("./user");
+const post = require("./post");
+const comment = require("./comment");
+// Define the relationships between the models
+user.hasMany(post, {
+    foreignKey: "user_id",
 });
 
-blog.belongsTo(user, {
-    foreignKey: 'user_id'
+post.belongsTo(user, {
+    foreignKey: "user_id",
 });
 
-blog.hasMany(comments, {
-    foreignKey: 'user_id',
+comment.belongsTo(user, {
+    foreignKey: "user_id",
 });
 
-user.hasMany(comments, {
-    foreignKey: 'user_id',
+comment.belongsTo(post, {
+    foreignKey: "post_id",
 });
 
-comments.belongsTo(user, {
-    foreignKey: 'user_id'
+post.hasMany(comment, {
+    foreignKey: "post_id",
 });
 
-comments.belongsTo(blog, {
-    foreignKey: 'user_id'
+user.hasMany(comment, {
+    foreignKey: "user_id",
 });
-
-module.exports = { user, comments, blog };
+// Export the models
+module.exports = { user, post, comment };
